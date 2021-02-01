@@ -1,0 +1,24 @@
+Brief answer: verySlow.c approach results in many cache misses while slow.c approach results in
+less cache misses. 
+
+In the inner most 4 loop k is running horizontally for x and vertically for y
+That means x elements are closely laid out in the memory while y elements are not 
+closely laid out in the memory, which results in cache misses when we try to load a huge chunks of data.
+
+If we try to finish the entire first row of the S matrix then there will be a lot of 
+cache misses related to bringing B data, because we will be bringing the entire matrix B
+to finish the first row of A and then again to finish 2nd row, 3rd row, ... It can be understood as follows.
+
+Let's assume that the cache can hold 6 cache lines and 2 numbers in one cache line. Further let's assume
+4x4 A and B matrices.
+
+If we follow the first approach in slow program, assuming a tile size of 2. We will be filing the
+first 2x2 grid in the c matrix. We would be using the first 2 columns again and again to fill up 4 values
+(00, 01, 10, 11) in the c matrix without cache misses for the B matrix.
+
+If we follow the second approach in the very slow program. We would be bringing 0th and 1st columns
+in the B matrix to fill up positions (00, 01) in c matrix, and then will bring 2nd and 3rd columns to
+fill up positions (02,03). Then we go to fill up the (10,11) positions in the c matrix, we need to again retrieve
+0th and 1st column values to the cache. Whereas in the first (slow) approach we would have filled up 4 locations
+in the result matrix with one time data retrival on the B matrix.
+
