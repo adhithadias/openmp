@@ -1,0 +1,4 @@
+SEC 1 -- thread num: 0, thread count: 20
+SEC 1 -- result: 100
+SEC 2 -- thread num: 4, thread count: 20
+SEC 2 -- result: 200

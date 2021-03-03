@@ -1,0 +1,16 @@
+
+=========== MASTER CONSTRUCT ============
+Thread num: 0, array_address: 0x7fdc24bc9010, sum: 100000
+
+=========== CRITICAL CONSTRUCT ============
+Thread num: 7, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 0, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 3, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 4, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 1, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 6, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 5, array_address: 0x7fdc24bc9010, sum: 100000
+Thread num: 2, array_address: 0x7fdc24bc9010, sum: 100000
+
+=========== SINGLE CONSTRUCT ============
+Thread num: 2, array_address: 0x7fdc24bc9010, sum: 100000

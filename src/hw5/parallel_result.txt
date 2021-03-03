@@ -1,0 +1,3 @@
+time for building the tree: 0.055411
+time for traversing the tree: 0.000768
+final count: 131094

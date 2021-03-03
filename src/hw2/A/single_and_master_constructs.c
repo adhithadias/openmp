@@ -20,7 +20,7 @@ void print_thread_info(char *dir) {
 *   single construct, unless otherwise specified with nowait clause, wait at an implicit barrier
 *   at the end of the single construct
 */
-void single_example() {
+void single_and_master_dir() {
 
     print_thread_info("SERIAL");
 
@@ -66,6 +66,6 @@ void single_example() {
 
 int main (int argc, char *argv []) {
 
-    single_example();
+    single_and_master_dir();
     return 0;
 }

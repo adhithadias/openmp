@@ -1,0 +1,61 @@
+Since there are only 20 steps associated with the for loop, setting the chunk size
+to 50 results in the same execution time as the serial execution in both the
+static chunk size 50 and dynamic chunk size 50 scenarios.
+
+It is seen that the amount of time taken to complete the work increases towards the end
+of the for loop. Therefore, work should be allocated to more threads from the end of
+the execution. That happens both in dynamic default (default is usually 1) and guided 
+execution. Therefore dynamic default and guded execution has the lowest of execution times.
+
+Out of those 2, I got mixed results at different times (dynamic was lower in most cases), because 
+same sort of allocation happens towards the end, but we could argue that guided will be better 
+than dynamic default if we extend the array to have like 100 steps, because of the lower 
+scheduling costs compared to dynamic.
+
+
+------- LONG EXPLANATION OF HOW THE THREADS ARE SCHEDULED FOR EACH i
+Below diagram shows the costs associated with each step and work allocation to the threads
+
+num threads is 4
+
+    0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17  18  19
+    0   0   1   0   0   2   0   0   0   0   5   0   0   0   0   7   0   8   0   9
+
+SERIAL EXECUTION
+0   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+1
+2
+3
+
+
+STATIC DEFAULT CHUNK
+0   *   *   *   *   *
+1                       *   *   *   *   *
+2                                           *   *   *   *   *
+3                                                               *   *   *   *   *
+
+STATIC CHUNK SIZE 50
+0   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+1                       
+2                                           
+3  
+
+DYNAMIC DEFAULT CHUNK
+0               *   *       *       *   *       *   *   *   *   *
+1       *                       *           *
+2   *                   *                                                   *   *
+3           *                                                       *   *
+
+DYNAMIC CHUNK SIZE 50
+0   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *            
+1                         
+2                              
+3 
+
+Note that dynamic default chunk size defaults to 1
+
+GUIDED
+0                                                   *   *   *   *
+1   *   *   *   *   *                                               *   *
+2                       *   *   *   *                                       *   *
+3                                       *   *   *   

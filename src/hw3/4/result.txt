@@ -1,0 +1,78 @@
+
+
+=== SECTION 1 -- loop immediately after #pragma omp parallel
+============================================================
+for after par -- i: 0, thread num: 0, nthreads: 5
+for after par -- i: 1, thread num: 0, nthreads: 5
+for after par -- i: 2, thread num: 0, nthreads: 5
+for after par -- i: 3, thread num: 0, nthreads: 5
+for after par -- i: 4, thread num: 0, nthreads: 5
+for after par -- i: 5, thread num: 0, nthreads: 5
+for after par -- i: 6, thread num: 0, nthreads: 5
+for after par -- i: 7, thread num: 0, nthreads: 5
+for after par -- i: 8, thread num: 0, nthreads: 5
+for after par -- i: 0, thread num: 3, nthreads: 5
+for after par -- i: 9, thread num: 0, nthreads: 5
+omp for in par -- i: 0, thread num: 0, nthreads: 5
+omp for in par -- i: 1, thread num: 0, nthreads: 5
+for after par -- i: 1, thread num: 3, nthreads: 5
+for after par -- i: 2, thread num: 3, nthreads: 5
+for after par -- i: 3, thread num: 3, nthreads: 5
+for after par -- i: 4, thread num: 3, nthreads: 5
+for after par -- i: 5, thread num: 3, nthreads: 5
+for after par -- i: 6, thread num: 3, nthreads: 5
+for after par -- i: 7, thread num: 3, nthreads: 5
+for after par -- i: 8, thread num: 3, nthreads: 5
+for after par -- i: 9, thread num: 3, nthreads: 5
+omp for in par -- i: 6, thread num: 3, nthreads: 5
+omp for in par -- i: 7, thread num: 3, nthreads: 5
+for after par -- i: 0, thread num: 4, nthreads: 5
+for after par -- i: 1, thread num: 4, nthreads: 5
+for after par -- i: 2, thread num: 4, nthreads: 5
+for after par -- i: 3, thread num: 4, nthreads: 5
+for after par -- i: 4, thread num: 4, nthreads: 5
+for after par -- i: 5, thread num: 4, nthreads: 5
+for after par -- i: 6, thread num: 4, nthreads: 5
+for after par -- i: 7, thread num: 4, nthreads: 5
+for after par -- i: 0, thread num: 2, nthreads: 5
+for after par -- i: 8, thread num: 4, nthreads: 5
+for after par -- i: 1, thread num: 2, nthreads: 5
+for after par -- i: 9, thread num: 4, nthreads: 5
+for after par -- i: 2, thread num: 2, nthreads: 5
+omp for in par -- i: 8, thread num: 4, nthreads: 5
+for after par -- i: 0, thread num: 1, nthreads: 5
+for after par -- i: 1, thread num: 1, nthreads: 5
+for after par -- i: 2, thread num: 1, nthreads: 5
+for after par -- i: 3, thread num: 1, nthreads: 5
+for after par -- i: 4, thread num: 1, nthreads: 5
+for after par -- i: 5, thread num: 1, nthreads: 5
+for after par -- i: 6, thread num: 1, nthreads: 5
+for after par -- i: 7, thread num: 1, nthreads: 5
+for after par -- i: 8, thread num: 1, nthreads: 5
+for after par -- i: 9, thread num: 1, nthreads: 5
+omp for in par -- i: 2, thread num: 1, nthreads: 5
+omp for in par -- i: 3, thread num: 1, nthreads: 5
+omp for in par -- i: 9, thread num: 4, nthreads: 5
+for after par -- i: 3, thread num: 2, nthreads: 5
+for after par -- i: 4, thread num: 2, nthreads: 5
+for after par -- i: 5, thread num: 2, nthreads: 5
+for after par -- i: 6, thread num: 2, nthreads: 5
+for after par -- i: 7, thread num: 2, nthreads: 5
+for after par -- i: 8, thread num: 2, nthreads: 5
+for after par -- i: 9, thread num: 2, nthreads: 5
+omp for in par -- i: 4, thread num: 2, nthreads: 5
+omp for in par -- i: 5, thread num: 2, nthreads: 5
+
+
+SECTION 2 -- loop immediately after #pragma omp parallel for
+============================================================
+omp par for -- i: 6, thread num: 3, nthreads: 5
+omp par for -- i: 0, thread num: 0, nthreads: 5
+omp par for -- i: 1, thread num: 0, nthreads: 5
+omp par for -- i: 8, thread num: 4, nthreads: 5
+omp par for -- i: 2, thread num: 1, nthreads: 5
+omp par for -- i: 7, thread num: 3, nthreads: 5
+omp par for -- i: 3, thread num: 1, nthreads: 5
+omp par for -- i: 9, thread num: 4, nthreads: 5
+omp par for -- i: 4, thread num: 2, nthreads: 5
+omp par for -- i: 5, thread num: 2, nthreads: 5

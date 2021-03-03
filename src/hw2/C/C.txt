@@ -1,0 +1,17 @@
+Due to the floating point number representation in the computer, the results heavily depends on
+the sequence the operations are carried out. 
+
+I converted the sum answer variable to long double and ran the programme again. It seems like float answer
+is much closer to the long double answer when the array is in ascending order, that is 1/i value is in ascending order, 
+(i.e. i goes from higher to lower | i=10000000->1)
+When summing up an array, it is common practice to sort the array by ascending magnitude and then summing
+it up. This approach is expected to have the minimum rounding off error.
+
+Becuase when we start from 1/10,000,000 , this very small number which can be represented using all the significands and 
+adding 1/9,999,999 wouldn't result in a significant error becuase the numbers are close to each other and very small.
+But if we add 1 to 1/10,000,000 smaller decimals would be rounded off (lost) as a result of the addition.
+
+
+references: 
+1. http://docs.sun.com/source/806-3568/ncg_goldberg.html
+2. https://community.intel.com/t5/Intel-oneAPI-HPC-Toolkit/Different-math-results-in-openMP-depended-on-number-of-processes/td-p/858929

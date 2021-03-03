@@ -1,0 +1,15 @@
+4a) Although tid is declared in the serial region, private(tid) 
+clause in the omp parallel causes tid to be made thread local having 
+copies of tid for each thread. Therefore, address of each tid is Different
+from one thread to another.
+
+4b) tid is defined inside the omp parallel block. Therefore, tid is inherantly
+thread local. Therefore, tid address of each thread is different.
+
+4c) in the 3rd example, tid is declared in the serial region. It was
+not declared as private in the omp parallel clause. Therefore, tid is not 
+thread private. So all the threads access the same tid declared in the serial region.
+All the threads write to the same tid address. Therefore, the last value contained
+in tid is from the last thread executed. This value is not deterministic because
+it depends on the last thread that was executed. 
+Also note that same tid is printed by multiple threads now.

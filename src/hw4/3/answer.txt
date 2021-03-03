@@ -1,0 +1,2 @@
+It seems like paralallel execution is nearly 20 times faster than the 
+serial execution because 20 threads are used for parallel execution.
