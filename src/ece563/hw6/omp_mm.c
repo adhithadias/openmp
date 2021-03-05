@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <time.h>
 
+#define NUM_THREADS 8
+
 void printArray(double* a, int rows, int cols) {
    for (int i=0; i<rows; i++) {
       for (int j=0; j<cols; j++) {
@@ -30,9 +32,9 @@ int min(int i, int j) {
 
 int main (int argc, char *argv[]) {
 
-   const int ROWS = 1600;
-   const int COLS = 1600;
-   const int tasks = 1600;
+   const int ROWS = 8;
+   const int COLS = 8;
+   const int tasks = 8;
    const int stripeSize = COLS/tasks;
 
    double* a = makeArray(ROWS, COLS);
@@ -40,6 +42,7 @@ int main (int argc, char *argv[]) {
    double* c = makeArray(ROWS, COLS);
 
    clock_t timer = -clock( );
+   #pragma omp parallel shared(a,b,c) private(i,j,k) 
    for (int t=0; t<tasks; t++) {
       for (int i=t*stripeSize; i<min(t*stripeSize+stripeSize, ROWS); i++) {
          for (int j=0; j<COLS; j++) {
@@ -52,7 +55,9 @@ int main (int argc, char *argv[]) {
       }
    }
    double timeTaken = (timer + clock( ))/CLOCKS_PER_SEC;
-   // printf("time taken for matrix multiply: %.2f ", timeTaken);
+   printf("time taken for matrix multiply: %.2f ", timeTaken);
    
-   // printArray(c, ROWS, COLS);
+   printArray(a, ROWS, COLS);
+   printArray(b, ROWS, COLS);
+   printArray(c, ROWS, COLS);
 }
