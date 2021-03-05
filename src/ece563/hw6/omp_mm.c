@@ -47,7 +47,7 @@ int main (int argc, char *argv[]) {
    int t,i,j,k;
 
    double timer = -omp_get_wtime();
-   #pragma omp parallel for shared(a,b,c) private(i,j,k,t) 
+   #pragma omp parallel for shared(a,b,c) private(i,j,k,t)
    for (t=0; t<tasks; t++) {
       for (i=t*stripeSize; i<min(t*stripeSize+stripeSize, ROWS); i++) {
          for (j=0; j<COLS; j++) {

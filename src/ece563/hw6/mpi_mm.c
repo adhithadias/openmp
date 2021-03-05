@@ -7,8 +7,9 @@
 #define COLS 1600
 
 void printArray(double *a, int rows, int cols) {
-	for (int i = 0; i < rows; i++) {
-		for (int j = 0; j < cols; j++) {
+	int i, j;
+	for (i = 0; i < rows; i++) {
+		for (j = 0; j < cols; j++) {
 			printf("%.2f ", *(a + i * cols + j));
 		}
 		printf("\n");
@@ -19,8 +20,9 @@ void printArray(double *a, int rows, int cols) {
 double *makeArray(int rows, int cols, int value, int p, int stripeSize, int is_b) {
 	double *arr = (double *)malloc(rows * cols * sizeof(double));
 
-	for (int r = 0; r < rows; r++) {
-		for (int c = 0; c < cols; c++) {
+	int r, c;
+	for (r = 0; r < rows; r++) {
+		for (c = 0; c < cols; c++) {
 			if (value == -1) {
 				if(is_b) {
 					*(arr + r * cols + c) = (double)((ROWS+1)*(c+2*p));
@@ -41,10 +43,11 @@ int min(int i, int j) {
 }
 
 void MatrixMul(double *c, double *a, double *b, int stripeSize, int msg_from, int p) {
-	for (int i = 0; i < stripeSize; i++) {
-		for (int j = 0; j < stripeSize; j++) {
+	int i, j, k;
+	for (i = 0; i < stripeSize; i++) {
+		for (j = 0; j < stripeSize; j++) {
 			double comp = 0.;
-			for (int k = 0; k < COLS; k++) {
+			for (k = 0; k < COLS; k++) {
 				comp += *(a + i * COLS + k) * *(b + k * stripeSize + j);
 			}
 			*(c + i * COLS + j + msg_from*stripeSize) = comp;
@@ -90,7 +93,8 @@ int main(int argc, char *argv[]) {
 	}
 	int send_to = (p + 1) % world_size;
 
-	for (int i = 0; i < world_size - 1; i++){
+	int i;
+	for (i = 0; i < world_size - 1; i++){
 		received_from = received_from - 1;
 		if (received_from < 0){
 			received_from = world_size + received_from;
