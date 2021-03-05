@@ -12,7 +12,7 @@ all: ${EXECS}
 mm: mpi_mm.c omp_mm.c
 	@echo "creating the executable.."
 	${MPICC} -o mpi_mm mpi_mm.c
-	${MPICC} -o omp_mm omp_mm.c
+	${MPICC} -o omp_mm -fopenmp omp_mm.c
 
 clean:
 	@echo "removing executables.."

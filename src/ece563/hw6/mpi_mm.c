@@ -16,8 +16,7 @@ void printArray(double *a, int rows, int cols) {
 	printf("\n\n\n");
 }
 
-double *makeArray(int rows, int cols, int value, int p, int stripeSize, int is_b)
-{
+double *makeArray(int rows, int cols, int value, int p, int stripeSize, int is_b) {
 	double *arr = (double *)malloc(rows * cols * sizeof(double));
 
 	for (int r = 0; r < rows; r++) {
