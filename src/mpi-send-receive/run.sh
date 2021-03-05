@@ -1,0 +1,1 @@
+mpirun -n 4 ./mpi_send_receive
