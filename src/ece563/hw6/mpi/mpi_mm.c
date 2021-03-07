@@ -3,8 +3,8 @@
 #include <time.h>
 #include <mpi.h>
 
-#define ROWS 1600
-#define COLS 1600
+#define ROWS 2400
+#define COLS 2400
 
 void printArray(double *a, int rows, int cols) {
 	int i, j;
@@ -72,9 +72,13 @@ int main(int argc, char *argv[]) {
 	double *a = makeArray(stripeSize, COLS, -1, p, stripeSize, 0);
 	double *b = makeArray(ROWS, stripeSize, -1, p, stripeSize, 1);
 	double *c = makeArray(stripeSize, COLS, 0, p, stripeSize, 0);
+	double *received_b = (double *)malloc(ROWS * stripeSize * sizeof(double));
+	double *final_c = makeArray(ROWS, COLS, 0, p, stripeSize, 0);
 
 	int msg_from = p;
 	double t1, t2;
+
+	MPI_Barrier(MPI_COMM_WORLD);
 	t1 = MPI_Wtime();
 
 	// initial matrix multiplication
@@ -83,7 +87,6 @@ int main(int argc, char *argv[]) {
 	int received_from = p;
 
 	// pass data
-	double *received_b = (double *)malloc(ROWS * stripeSize * sizeof(double));
 	double *temp;
 	int size = ROWS * stripeSize;
 
@@ -125,17 +128,27 @@ int main(int argc, char *argv[]) {
 		
 	}
 
-	double *final_c = makeArray(ROWS, COLS, 0, p, stripeSize, 0);
+	
 	MPI_Gather(c, size, MPI_DOUBLE, final_c, size, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
 	MPI_Barrier(MPI_COMM_WORLD);
 	t2 = MPI_Wtime();
 
 	if (p == 0) {
-		printf("Elapsed time is %f\n", t2 - t1);
+		printf("\nElapsed time with %d process(es) is %f\n\n", world_size, t2 - t1);
 	}
+
+	// MPI_Barrier(MPI_COMM_WORLD);
+	// printArray(a, stripeSize, COLS);
+
+	// MPI_Barrier(MPI_COMM_WORLD);
+	// printArray(b, ROWS, stripeSize);
+
+	// MPI_Barrier(MPI_COMM_WORLD);
+	// if (p == 0) {
+	// 	printArray(final_c, ROWS, COLS);
+	// }
 	
-	// printArray(final_c, ROWS, COLS);
 
 	MPI_Finalize();
 	return EXIT_SUCCESS;

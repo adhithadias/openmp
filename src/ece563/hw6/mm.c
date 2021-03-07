@@ -52,7 +52,7 @@ int main (int argc, char *argv[]) {
       }
    }
    double timeTaken = (timer + clock( ))/CLOCKS_PER_SEC;
-   // printf("time taken for matrix multiply: %.2f ", timeTaken);
+   printf("time taken for matrix multiply: %.2f ", timeTaken);
    
    // printArray(c, ROWS, COLS);
 }

@@ -1,0 +1,1 @@
+sbatch ./omp-batch.sub

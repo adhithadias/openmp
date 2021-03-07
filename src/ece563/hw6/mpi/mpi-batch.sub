@@ -1,0 +1,8 @@
+#!/bin/bash
+# FILENAME:  mpi-batch.sub
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=20
+#SBATCH  --time=00:02:00
+#SBATCH  -A scholar
+
+srun --mpi=pmi2 -n 4 ./mpi_mm 

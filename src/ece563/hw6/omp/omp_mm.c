@@ -3,28 +3,29 @@
 #include <time.h>
 #include <omp.h>
 
-#define NUM_THREADS 4
-#define ROWS 1600
-#define COLS 1600
-#define tasks 1600
+// #define NUM_THREADS 4
+#define ROWS 2400
+#define COLS 2400
+#define tasks 2400
 
 void printArray(double* a, int rows, int cols) {
-   for (int i=0; i<rows; i++) {
-      for (int j=0; j<cols; j++) {
-         printf("%.2f ", *(a + i*cols + j));
-      }
-      printf("\n");
-   }
+  int i, j;
+  for (i = 0; i < rows; i++) {
+    for (j = 0; j < cols; j++) {
+      printf("%.2f ", *(a + i * cols + j));
+    }
+    printf("\n");
+  }
    printf("\n\n\n");
 }
 
 double* makeArray(int rows, int cols) {
    double* arr = (double*) malloc(rows*cols*sizeof(double));
-
-   for (int r=0; r<rows; r++) {
-      for (int c=0; c<cols; c++) {
-         *(arr + r*cols + c) = (double) (rows*c + c);
-      }
+   int r, c;
+   for (r = 0; r < rows; r++) {
+     for (c = 0; c < cols; c++) {
+       *(arr + r * cols + c) = (double)(rows * c + c);
+     }
    }
 
    return arr;
@@ -36,7 +37,7 @@ int min(int i, int j) {
 
 int main (int argc, char *argv[]) {
 
-   omp_set_num_threads(NUM_THREADS);
+   // omp_set_num_threads(NUM_THREADS);
 
    const int stripeSize = COLS/tasks;
 
@@ -60,7 +61,7 @@ int main (int argc, char *argv[]) {
       }
    }
    timer += omp_get_wtime();
-   printf("time taken for matrix multiply: %f ", timer);
+   printf("\nElapsed time for matrix multiply with omp: %f\n\n", timer);
    
    // printArray(a, ROWS, COLS);
    // printArray(b, ROWS, COLS);
