@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
     if (p%steps == 0) {
       // receive data inside this process
       int source = p + steps / 2;
-      printf("receiving -- source: %d --> proc: %d\n", source, p);
+      // printf("receiving -- source: %d --> proc: %d\n", source, p);
       MPI_Recv(&received_sum, 1, MPI_DOUBLE, source, 0, MPI_COMM_WORLD,
                MPI_STATUS_IGNORE);
       final_sum += received_sum;
@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
     } else if (p%(steps/2) == 0) {
       // send data from this process
       int dest = (p / steps) * steps;
-      printf("sending -- dest: %d <-- proc: %d\n", dest, p);
+      // printf("sending -- dest: %d <-- proc: %d\n", dest, p);
       MPI_Send(&final_sum, 1, MPI_DOUBLE, dest, 0, MPI_COMM_WORLD);
     } else {
       // do nothing inside this process
@@ -93,7 +93,49 @@ int main(int argc, char *argv[]) {
 
   // print result only from process 0
   if (p == 0) {
-    printf("Total sum = %f, time taken: %f\n", final_sum, t2-t1);
+    printf("1st execution -- total sum = %f, time taken: %.10f\n", final_sum, t2-t1);
+  }
+
+  /********************************************************************
+   * 2nd time execution
+   *********************************************************************/
+  MPI_Barrier(MPI_COMM_WORLD);
+  t1 = MPI_Wtime();
+
+  // sum reduction inside the process
+  p_sum = sum_reduction(a, array_size);
+
+  // reduction of local sums to global sum in process 0
+  final_sum = p_sum;
+  steps = 2;
+  while (steps <= world_size) {
+
+    if (p%steps == 0) {
+      // receive data inside this process
+      int source = p + steps / 2;
+      // printf("receiving -- source: %d --> proc: %d\n", source, p);
+      MPI_Recv(&received_sum, 1, MPI_DOUBLE, source, 0, MPI_COMM_WORLD,
+               MPI_STATUS_IGNORE);
+      final_sum += received_sum;
+      
+    } else if (p%(steps/2) == 0) {
+      // send data from this process
+      int dest = (p / steps) * steps;
+      // printf("sending -- dest: %d <-- proc: %d\n", dest, p);
+      MPI_Send(&final_sum, 1, MPI_DOUBLE, dest, 0, MPI_COMM_WORLD);
+    } else {
+      // do nothing inside this process
+    }
+
+    steps = steps * 2;
+  }
+
+  MPI_Barrier(MPI_COMM_WORLD);
+  t2 = MPI_Wtime();
+
+  // print result only from process 0
+  if (p == 0) {
+    printf("2nd execution -- total sum = %f, time taken: %.10f\n", final_sum, t2-t1);
   }
 
   free(a);

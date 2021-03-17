@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
   // sum reduction inside the process
   p_sum = sum_reduction(a, array_size);
 
-  // Reduce all of the local sums into the global sum
+  // reduce all of the local sums into the global sum
   double final_sum;
   MPI_Reduce(&p_sum, &final_sum, 1, MPI_DOUBLE, MPI_SUM, 0,
              MPI_COMM_WORLD);
@@ -68,12 +68,28 @@ int main(int argc, char *argv[]) {
   MPI_Barrier(MPI_COMM_WORLD);
   t2 = MPI_Wtime();
 
-  // Print the sum on each process
+  // print the sum on each process
   printf("Local sum for process/world %d/%d: %f\n", p, world_size, p_sum);
 
-  // Print the result
+  // print the result
   if (p == 0) {
-    printf("Total sum = %f, time taken: %f\n", final_sum, t2-t1);
+    printf("1st execution -- total sum = %f, time taken: %.10f\n", final_sum, t2-t1);
+  }
+
+  /********************************************************************
+   * 2nd time execution
+   *********************************************************************/
+  MPI_Barrier(MPI_COMM_WORLD);
+  t1 = MPI_Wtime();
+  p_sum = sum_reduction(a, array_size);
+  MPI_Reduce(&p_sum, &final_sum, 1, MPI_DOUBLE, MPI_SUM, 0,
+             MPI_COMM_WORLD);
+  MPI_Barrier(MPI_COMM_WORLD);
+  t2 = MPI_Wtime();
+
+  // print the result
+  if (p == 0) {
+    printf("2nd execution -- total sum = %f, time taken: %.10f\n", final_sum, t2-t1);
   }
 
   // Clean up
