@@ -1,0 +1,168 @@
+# in-built MPI_Reduce with 4 processes and 10000
+Local sum for process/world 0/4: 0.000000
+1st execution -- total sum = 15000.000000, time taken: 0.0000329018
+2nd execution -- total sum = 15000.000000, time taken: 0.0000219345
+Local sum for process/world 1/4: 2500.000000
+Local sum for process/world 2/4: 5000.000000
+Local sum for process/world 3/4: 7500.000000
+
+# in-built MPI_Reduce with 16 processes and 10000
+Local sum for process/world 3/16: 1875.000000
+Local sum for process/world 4/16: 2500.000000
+Local sum for process/world 9/16: 5625.000000
+Local sum for process/world 10/16: 6250.000000
+Local sum for process/world 14/16: 8750.000000
+Local sum for process/world 0/16: 0.000000
+1st execution -- total sum = 75000.000000, time taken: 0.0000638962
+2nd execution -- total sum = 75000.000000, time taken: 0.0000259876
+Local sum for process/world 1/16: 625.000000
+Local sum for process/world 2/16: 1250.000000
+Local sum for process/world 5/16: 3125.000000
+Local sum for process/world 6/16: 3750.000000
+Local sum for process/world 7/16: 4375.000000
+Local sum for process/world 8/16: 5000.000000
+Local sum for process/world 11/16: 6875.000000
+Local sum for process/world 12/16: 7500.000000
+Local sum for process/world 13/16: 8125.000000
+Local sum for process/world 15/16: 9375.000000
+
+# in-built MPI_Reduce with 4 processes and 100000
+Local sum for process/world 0/4: 0.000000
+1st execution -- total sum = 150000.000000, time taken: 0.0009050369
+2nd execution -- total sum = 150000.000000, time taken: 0.0000259876
+Local sum for process/world 1/4: 25000.000000
+Local sum for process/world 2/4: 50000.000000
+Local sum for process/world 3/4: 75000.000000
+
+# in-built MPI_Reduce with 4 processes and 100000
+Local sum for process/world 0/16: 0.000000
+1st execution -- total sum = 750000.000000, time taken: 0.0000529289
+Local sum for process/world 7/16: 43750.000000
+Local sum for process/world 8/16: 50000.000000
+Local sum for process/world 12/16: 75000.000000
+Local sum for process/world 1/16: 6250.000000
+Local sum for process/world 2/16: 12500.000000
+Local sum for process/world 3/16: 18750.000000
+Local sum for process/world 4/16: 25000.000000
+Local sum for process/world 5/16: 31250.000000
+Local sum for process/world 6/16: 37500.000000
+Local sum for process/world 9/16: 56250.000000
+Local sum for process/world 10/16: 62500.000000
+Local sum for process/world 11/16: 68750.000000
+Local sum for process/world 13/16: 81250.000000
+Local sum for process/world 14/16: 87500.000000
+Local sum for process/world 15/16: 93750.000000
+2nd execution -- total sum = 750000.000000, time taken: 0.0000209808
+
+# in-built MPI_Reduce with 4 processes and 1000000
+Local sum for process/world 0/4: 0.000000
+1st execution -- total sum = 1500000.000000, time taken: 0.0001249313
+Local sum for process/world 1/4: 250000.000000
+Local sum for process/world 2/4: 500000.000000
+Local sum for process/world 3/4: 750000.000000
+2nd execution -- total sum = 1500000.000000, time taken: 0.0000848770
+
+# in-built MPI_Reduce with 16 processes and 1000000
+Local sum for process/world 0/16: 0.000000
+1st execution -- total sum = 7500000.000000, time taken: 0.0000770092
+Local sum for process/world 1/16: 62500.000000
+Local sum for process/world 2/16: 125000.000000
+Local sum for process/world 3/16: 187500.000000
+Local sum for process/world 4/16: 250000.000000
+Local sum for process/world 5/16: 312500.000000
+Local sum for process/world 6/16: 375000.000000
+Local sum for process/world 7/16: 437500.000000
+Local sum for process/world 8/16: 500000.000000
+Local sum for process/world 9/16: 562500.000000
+Local sum for process/world 10/16: 625000.000000
+Local sum for process/world 11/16: 687500.000000
+Local sum for process/world 12/16: 750000.000000
+Local sum for process/world 13/16: 812500.000000
+Local sum for process/world 14/16: 875000.000000
+Local sum for process/world 15/16: 937500.000000
+2nd execution -- total sum = 7500000.000000, time taken: 0.0000548363
+
+
+# my implementation with 4 processes and 10000
+Local sum for process/world 0/4: 0.000000
+1st execution -- total sum = 15000.000000, time taken: 0.0004580021
+2nd execution -- total sum = 15000.000000, time taken: 0.0000030994
+Local sum for process/world 1/4: 2500.000000
+Local sum for process/world 2/4: 5000.000000
+Local sum for process/world 3/4: 7500.000000
+
+# my implementation with 16 processes and 10000
+Local sum for process/world 1/16: 625.000000
+Local sum for process/world 2/16: 1250.000000
+Local sum for process/world 5/16: 3125.000000
+Local sum for process/world 6/16: 3750.000000
+Local sum for process/world 8/16: 5000.000000
+Local sum for process/world 10/16: 6250.000000
+Local sum for process/world 11/16: 6875.000000
+Local sum for process/world 12/16: 7500.000000
+Local sum for process/world 13/16: 8125.000000
+Local sum for process/world 15/16: 9375.000000
+Local sum for process/world 0/16: 0.000000
+1st execution -- total sum = 75000.000000, time taken: 0.0000450611
+2nd execution -- total sum = 75000.000000, time taken: 0.0000398159
+Local sum for process/world 3/16: 1875.000000
+Local sum for process/world 4/16: 2500.000000
+Local sum for process/world 7/16: 4375.000000
+Local sum for process/world 9/16: 5625.000000
+Local sum for process/world 14/16: 8750.000000
+
+# my implementation with 4 processes and 100000
+Local sum for process/world 0/4: 0.000000
+1st execution -- total sum = 150000.000000, time taken: 0.0000278950
+2nd execution -- total sum = 150000.000000, time taken: 0.0000181198
+Local sum for process/world 1/4: 25000.000000
+Local sum for process/world 2/4: 50000.000000
+Local sum for process/world 3/4: 75000.000000
+
+# my implementation with 16 processes and 100000
+Local sum for process/world 2/16: 12500.000000
+Local sum for process/world 3/16: 18750.000000
+Local sum for process/world 7/16: 43750.000000
+Local sum for process/world 8/16: 50000.000000
+Local sum for process/world 9/16: 56250.000000
+Local sum for process/world 13/16: 81250.000000
+Local sum for process/world 0/16: 0.000000
+1st execution -- total sum = 750000.000000, time taken: 0.0000550747
+2nd execution -- total sum = 750000.000000, time taken: 0.0000238419
+Local sum for process/world 1/16: 6250.000000
+Local sum for process/world 4/16: 25000.000000
+Local sum for process/world 5/16: 31250.000000
+Local sum for process/world 6/16: 37500.000000
+Local sum for process/world 10/16: 62500.000000
+Local sum for process/world 11/16: 68750.000000
+Local sum for process/world 12/16: 75000.000000
+Local sum for process/world 14/16: 87500.000000
+Local sum for process/world 15/16: 93750.000000
+
+# my implementation with 4 processes and 1000000
+Local sum for process/world 0/4: 0.000000
+1st execution -- total sum = 1500000.000000, time taken: 0.0001032352
+Local sum for process/world 1/4: 250000.000000
+Local sum for process/world 2/4: 500000.000000
+Local sum for process/world 3/4: 750000.000000
+2nd execution -- total sum = 1500000.000000, time taken: 0.0000760555
+
+# my implementation with 16 processes and 1000000
+Local sum for process/world 0/16: 0.000000
+1st execution -- total sum = 7500000.000000, time taken: 0.0000669956
+Local sum for process/world 5/16: 312500.000000
+Local sum for process/world 8/16: 500000.000000
+Local sum for process/world 10/16: 625000.000000
+Local sum for process/world 12/16: 750000.000000
+Local sum for process/world 13/16: 812500.000000
+Local sum for process/world 1/16: 62500.000000
+Local sum for process/world 2/16: 125000.000000
+Local sum for process/world 3/16: 187500.000000
+Local sum for process/world 4/16: 250000.000000
+Local sum for process/world 9/16: 562500.000000
+Local sum for process/world 11/16: 687500.000000
+Local sum for process/world 6/16: 375000.000000
+Local sum for process/world 7/16: 437500.000000
+Local sum for process/world 14/16: 875000.000000
+Local sum for process/world 15/16: 937500.000000
+2nd execution -- total sum = 7500000.000000, time taken: 0.0000531673

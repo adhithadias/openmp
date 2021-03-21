@@ -1,0 +1,49 @@
+# in-built MPI_Reduce with 4 processes and 10000
+1st execution -- total sum = 15000.000000, time taken: 0.0000329018
+2nd execution -- total sum = 15000.000000, time taken: 0.0000219345
+
+# in-built MPI_Reduce with 16 processes and 10000
+1st execution -- total sum = 75000.000000, time taken: 0.0000638962
+2nd execution -- total sum = 75000.000000, time taken: 0.0000259876
+
+# in-built MPI_Reduce with 4 processes and 100000
+1st execution -- total sum = 150000.000000, time taken: 0.0009050369
+2nd execution -- total sum = 150000.000000, time taken: 0.0000259876
+
+# in-built MPI_Reduce with 4 processes and 100000
+1st execution -- total sum = 750000.000000, time taken: 0.0000529289
+2nd execution -- total sum = 750000.000000, time taken: 0.0000209808
+
+# in-built MPI_Reduce with 4 processes and 1000000
+1st execution -- total sum = 1500000.000000, time taken: 0.0001249313
+2nd execution -- total sum = 1500000.000000, time taken: 0.0000848770
+
+# in-built MPI_Reduce with 16 processes and 1000000
+1st execution -- total sum = 7500000.000000, time taken: 0.0000770092
+2nd execution -- total sum = 7500000.000000, time taken: 0.0000548363
+
+##-------------------------------------------------------------------
+
+# my implementation with 4 processes and 10000
+1st execution -- total sum = 15000.000000, time taken: 0.0004580021
+2nd execution -- total sum = 15000.000000, time taken: 0.0000030994
+
+# my implementation with 16 processes and 10000
+1st execution -- total sum = 75000.000000, time taken: 0.0000450611
+2nd execution -- total sum = 75000.000000, time taken: 0.0000398159
+
+# my implementation with 4 processes and 100000
+1st execution -- total sum = 150000.000000, time taken: 0.0000278950
+2nd execution -- total sum = 150000.000000, time taken: 0.0000181198
+
+# my implementation with 16 processes and 100000
+1st execution -- total sum = 750000.000000, time taken: 0.0000550747
+2nd execution -- total sum = 750000.000000, time taken: 0.0000238419
+
+# my implementation with 4 processes and 1000000
+1st execution -- total sum = 1500000.000000, time taken: 0.0001032352
+2nd execution -- total sum = 1500000.000000, time taken: 0.0000760555
+
+# my implementation with 16 processes and 1000000
+1st execution -- total sum = 7500000.000000, time taken: 0.0000669956
+2nd execution -- total sum = 7500000.000000, time taken: 0.0000531673
