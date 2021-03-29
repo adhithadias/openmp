@@ -3,7 +3,7 @@
 # make clean  # remove ALL binaries and objects
 
 CC = mpicc
-CFLAGS = 
+CFLAGS = -std=c11
 INCLUDES = -I../include
 LFLAGS = -L../lib
 LIBS = -lm -fopenmp
@@ -19,10 +19,10 @@ all: ${EXECS}
 
 ${EXECS}:  %: %.o
 	@echo "creating the executable.."
-	$(CC) $(INCLUDES) -o $@ $< $(LFLAGS) $(LIBS)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $< $(LFLAGS) $(LIBS)
 
 .c.o:
-	$(CC) $(INCLUDES) -c $< -o $@ $(LIBS)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@ $(LIBS)
 
 clean:
 	@echo "removing executables.."
