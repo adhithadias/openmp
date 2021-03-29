@@ -11,6 +11,12 @@
         "hashtable.h": "c",
         "unistd.h": "c",
         "*.cuh": "c",
-        "omp.h": "c"
+        "omp.h": "c",
+        "array": "c",
+        "initializer_list": "c",
+        "utility": "c",
+        "*.tcc": "c",
+        "random": "c",
+        "bit": "c"
     }
 }
